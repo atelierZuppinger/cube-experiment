@@ -1,7 +1,48 @@
 @import '_settings'
+@import jeet
 
-normalize()
 base()
 
 body
-  padding: 50px
+  padding 50px
+  background orange
+
+#cubeContainer
+  width cubeWidth
+  height cubeWidth
+  position relative
+  margin 100px auto
+  perspective 1000px
+
+#cube
+  width 100%
+  height 100%
+  position absolute
+  transform-style preserve-3d
+  transform translateZ(100px) rotateX(45deg) rotateY(45deg)
+  figure
+    width cubeWidth // - 1px
+    height cubeWidth // - 1px
+    //border 1px solid white
+    display block
+    position absolute
+    color white
+    background rgba(256,256,256,.1)
+    opacity 1
+    font-size 200px
+    text-align center
+    line-height 100%
+    overflow hidden
+    text-indent -2000px
+  .front 
+    transform rotateY(0deg) translateZ(cubeWidth/2)
+  .back
+    transform rotateX(180deg) translateZ(cubeWidth/2)
+  .right 
+    transform rotateY(90deg) translateZ(cubeWidth/2)
+  .left 
+    transform rotateY(-90deg) translateZ(cubeWidth/2)
+  .top 
+    transform rotateX(90deg) translateZ(cubeWidth/2)
+  .bottom 
+    transform rotateX(-90deg) translateZ(cubeWidth/2)
