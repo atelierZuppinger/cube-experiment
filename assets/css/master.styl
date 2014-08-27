@@ -1,6 +1,10 @@
 @import '_settings'
 @import jeet
 
+boxBase = 40px
+boxHeight = 2000px
+border = 1px
+
 base()
 
 body
@@ -8,46 +12,50 @@ body
   background orange 
 
 #cubeContainer
-  width cubeWidth
-  height cubeWidth
-  position fixed
-  margin 100px 300px
+  width boxHeight
+  height boxBase
+  position relative
   perspective 1000px
 
-#cube
+#box
   width 100%
   height 100%
   position absolute
+  transform translateZ(0) rotateY(90deg)
   transform-style preserve-3d
-  transform translateZ(100px) rotateX(45deg) rotateY(45deg)
-  figure
-    width cubeWidth // - 1px
-    height cubeWidth // - 1px
-    //border 1px solid white
+  left 0
+  figure 
     display block
     position absolute
-    color white
-    opacity 1
-    font-size 200px
-    text-align center
-    line-height 100%
-    overflow hidden
-    text-indent -2000px
-    background linear-gradient(left, red, orange)
-  .front 
-    transform rotateY(0deg) translateZ(cubeWidth/2)
+    border border solid black
+    background orange
+  /*
+  /!\ front, back, right, ... aren't really what they say the are. Sorry.
+  */
   .back
-    background linear-gradient(left, greyLight, greyLight)
-    transform rotateX(180deg) translateZ(cubeWidth/2)
-  .right 
-    //background linear-gradient(left, red, orange)
-    transform rotateY(90deg) translateZ(cubeWidth/2)
-  .left 
-    //background linear-gradient(right, red, orange)
-    transform rotateY(-90deg) translateZ(cubeWidth/2)
-  .top 
-    //background linear-gradient(bottom, red, orange)
-    transform rotateX(90deg) translateZ(cubeWidth/2)
+  .front
+    width boxBase - border*2
+    height boxBase - border*2
+    left ((boxHeight - boxBase)/2)
+  .right
+  .left
+    width boxHeight - border*2
+    height boxBase - border*2
+  .top,
   .bottom 
-    //background linear-gradient(top, red, orange)
-    transform rotateX(-90deg) translateZ(cubeWidth/2)
+    width boxHeight - border*2
+    height boxBase - border*2
+    top 0
+  .back
+    transform rotateY(90deg) translateZ(boxHeight/2)
+  .front
+    transform rotateY(-90deg) translateZ(boxHeight/2)
+  .right
+    transform rotateY(0deg) translateZ(boxBase/2)
+  .left
+    transform rotateX(180deg) translateZ(boxBase/2)
+  .top   
+    transform rotateX(90deg) translateZ(boxBase/2)
+  .bottom
+    transform rotateX(-90deg) translateZ(boxBase/2)
+
