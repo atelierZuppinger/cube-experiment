@@ -2,8 +2,8 @@
 @import jeet
 
 boxBase = 40px
-boxHeight = 2000px
-border = 1px
+boxHeight = 1050px
+border = 0px
 
 base()
 
@@ -14,24 +14,24 @@ body
 #cubeContainer
   width boxHeight
   height boxBase
-  position relative
-  perspective 1000px
+  position fixed
+  perspective 100px
 
 #box
   width 100%
   height 100%
   position absolute
-  transform translateZ(0) rotateY(90deg)
+  transform translateZ(450px) rotateY(90deg)
   transform-style preserve-3d
   left 0
+  top 0
   figure 
     display block
     position absolute
     border border solid black
     background orange
-  /*
-  /!\ front, back, right, ... aren't really what they say the are. Sorry.
-  */
+    overflow hidden
+    text-indent -2000px
   .back
   .front
     width boxBase - border*2
@@ -41,13 +41,17 @@ body
   .left
     width boxHeight - border*2
     height boxBase - border*2
+    background linear-gradient(left, orange 90%, orangeDark 100%)
   .top,
   .bottom 
     width boxHeight - border*2
     height boxBase - border*2
+    background linear-gradient(left, orange 93%, orangeDark 100%)
     top 0
   .back
     transform rotateY(90deg) translateZ(boxHeight/2)
+    //box-shadow 0 0 40px greyLight
+    background greyLight
   .front
     transform rotateY(-90deg) translateZ(boxHeight/2)
   .right
