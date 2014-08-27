@@ -1,6 +1,8 @@
-section#cubeContainer
-  #cube
-    figure.right 3
-    figure.left 4
-    figure.top 5
-    figure.bottom 6
+body
+  section#cubeContainer
+    #cube(data-0="opacity:0;transform:rotateX(60deg) rotateY(60deg) scale(1);top:0px;", data-800="opacity:1;transform:rotateX(12deg) rotateY(-4deg) scale(1); top:0px;",data-1000="transform:rotateX(12deg) rotateY(-4deg) scale(10);top:-2000px")
+      figure.back(data-0="opacity:0", data-600="opacity:0", data-1000="opacity:1;") 2
+      figure.right 3
+      figure.left 4
+      figure.top 5
+      figure.bottom 6

@@ -5,13 +5,13 @@ base()
 
 body
   padding 50px
-  background orange
+  background orange 
 
 #cubeContainer
   width cubeWidth
   height cubeWidth
-  position relative
-  margin 100px auto
+  position fixed
+  margin 100px 300px
   perspective 1000px
 
 #cube
@@ -27,22 +27,27 @@ body
     display block
     position absolute
     color white
-    background rgba(256,256,256,.1)
     opacity 1
     font-size 200px
     text-align center
     line-height 100%
     overflow hidden
     text-indent -2000px
+    background linear-gradient(left, red, orange)
   .front 
     transform rotateY(0deg) translateZ(cubeWidth/2)
   .back
+    background linear-gradient(left, greyLight, greyLight)
     transform rotateX(180deg) translateZ(cubeWidth/2)
   .right 
+    //background linear-gradient(left, red, orange)
     transform rotateY(90deg) translateZ(cubeWidth/2)
   .left 
+    //background linear-gradient(right, red, orange)
     transform rotateY(-90deg) translateZ(cubeWidth/2)
   .top 
+    //background linear-gradient(bottom, red, orange)
     transform rotateX(90deg) translateZ(cubeWidth/2)
   .bottom 
+    //background linear-gradient(top, red, orange)
     transform rotateX(-90deg) translateZ(cubeWidth/2)

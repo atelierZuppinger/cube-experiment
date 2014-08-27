@@ -9,8 +9,9 @@ html
     title= title
     
     link(rel='stylesheet', href='css/master.css')
-  body
-    != content
+  != content
 
     //- add other scripts through require.js, not here
-    script(data-main="js/main", src="js/require.js")
+    script(type="text/javascript", src="js/skrollr/src/skrollr.js")
+    script(type="text/javascript").
+      var s = skrollr.init();
